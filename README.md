@@ -519,7 +519,7 @@ The primary objectives of this project are:
 
 Repository:
 
-**[NarendraMandada77](https://github.com/NarendraMandada77/AI-Air-Quality-Prediction)**
+**https://github.com/NarendraMandada77/AI-Air-Quality-Prediction**
 
 # 📜 License
 
