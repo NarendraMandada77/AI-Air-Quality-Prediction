@@ -1,160 +1,526 @@
-# 🌍 AI Air Quality & Weather Forecasting | Personalized Health Advisory
+# 🌍 AI Air Quality Prediction & Personalized Health Advisory
 
-An end-to-end Deep Learning & AI-powered Air Quality Index (AQI) forecasting system with live telemetry integration (Open-Meteo API) and an interactive Streamlit web dashboard.
+An end-to-end **AI and Deep Learning-based air quality forecasting platform** designed to predict AQI trends, analyze atmospheric conditions, and provide personalized health recommendations.
 
----
-
-## ✨ Features
-
-- **Live Telemetry & Geocoding**: Real-time ambient weather and air quality fetching for any global city via Open-Meteo API.
-- **Deep Learning Forecasters**: Sequence-to-sequence AQI forecasting using **LSTM**, **GRU**, and **Transformer** PyTorch architectures trained on 14-day temporal windows.
-- **CPCB AQI Calculation**: Exact Indian National Air Quality Index (AQI) sub-index calculation and dominant pollutant identification according to CPCB standards.
-- **Personalized Health Advisory AI Agent**: Dynamic risk assessment and custom actionable health guidelines across 6 distinct user health profiles (Asthma/Respiratory, Heart Conditions, Elderly, Children, Outdoor Athletes, General Public).
-- **Interactive Web Dashboard**: Built with Streamlit, Plotly, custom CSS themes, and model comparison metrics.
+The system combines historical air-quality datasets, deep-learning time-series models, live weather and air-quality information, CPCB-based AQI calculations, and an interactive Streamlit dashboard into a single application.
 
 ---
 
-## 📁 Repository Structure
+## 🚀 Project Overview
 
+Air pollution can vary significantly across locations and over time. This project uses historical pollutant measurements and temporal patterns to forecast future **Air Quality Index (AQI)** values.
+
+The platform also analyzes the predicted air-quality conditions and provides health recommendations based on different user profiles.
+
+### Main capabilities
+
+* 📡 Live weather and air-quality data integration
+* 📈 Multi-step AQI forecasting
+* 🧠 LSTM, GRU, and Transformer deep-learning models
+* 🇮🇳 CPCB-based Indian AQI calculation
+* 🩺 Personalized health recommendations
+* 🌦️ Weather and environmental condition analysis
+* 📊 Interactive Streamlit dashboard
+* 📉 Model performance comparison
+* 🗺️ Location-based air-quality analysis
+* ⚙️ Automated data cleaning and feature engineering
+
+---
+
+# ✨ Key Features
+
+## 1. 🌐 Live Environmental Data
+
+The application can retrieve current environmental information for locations around the world using the **Open-Meteo API**.
+
+The live integration provides weather and air-quality information that can be used alongside historical data for analysis and visualization.
+
+---
+
+## 2. 🤖 Deep Learning AQI Forecasting
+
+Three different neural-network architectures are implemented for time-series forecasting:
+
+* **LSTM**
+* **GRU**
+* **Transformer**
+
+The models learn temporal relationships from historical air-quality observations using **14-day sequences**.
+
+Future AQI values can be forecast for multiple horizons:
+
+* 1 day
+* 3 days
+* 7 days
+
+This allows the system to analyze both short-term and near-future pollution trends.
+
+---
+
+## 3. 🇮🇳 CPCB AQI Calculation
+
+The system implements the **Indian National Air Quality Index methodology** to calculate AQI values from pollutant concentrations.
+
+The system considers major pollutants such as:
+
+* PM2.5
+* PM10
+* NO
+* NO2
+* NOx
+* NH3
+* CO
+* SO2
+* O3
+* Benzene
+* Toluene
+* Xylene
+
+The resulting AQI is assigned to an appropriate category:
+
+| AQI Range | Category     |
+| --------: | ------------ |
+|      0–50 | Good         |
+|    51–100 | Satisfactory |
+|   101–200 | Moderate     |
+|   201–300 | Poor         |
+|   301–400 | Very Poor    |
+|  401–500+ | Severe       |
+
+The application also identifies the pollutant contributing most significantly to the AQI.
+
+---
+
+# 🩺 Personalized Health Advisory
+
+The system provides environmental health recommendations based on different user groups.
+
+### Supported profiles
+
+**1. General Public**
+
+Provides general precautions and recommendations for daily activities.
+
+**2. Asthma / Respiratory Conditions**
+
+Provides additional precautions during elevated pollution levels, including recommendations concerning outdoor exposure and respiratory protection.
+
+**3. Cardiovascular / Heart Conditions**
+
+Provides guidance for limiting strenuous outdoor activities during unhealthy air-quality conditions.
+
+**4. Elderly Users**
+
+Provides additional precautions for older adults during periods of poor air quality and extreme environmental conditions.
+
+**5. Children & Infants**
+
+Provides recommendations concerning outdoor activities and exposure to polluted environments.
+
+**6. Outdoor Athletes / Workers**
+
+Provides guidance for adjusting outdoor activity and exercise schedules according to pollution levels.
+
+---
+
+# 🧠 Machine Learning Architecture
+
+The forecasting component uses three deep-learning architectures.
+
+## LSTM
+
+The Long Short-Term Memory model is designed to capture long-term dependencies within sequential air-quality observations.
+
+The implementation uses:
+
+* Multiple LSTM layers
+* Dropout regularization
+* Fully connected regression output
+
+---
+
+## GRU
+
+The Gated Recurrent Unit model provides another recurrent architecture for learning temporal dependencies.
+
+GRU can provide a computationally efficient alternative to LSTM while maintaining strong sequence-learning capabilities.
+
+---
+
+## Transformer
+
+The Transformer model uses self-attention to identify relationships between different time steps in the input sequence.
+
+The implementation includes:
+
+* Positional encoding
+* Multi-head self-attention
+* Transformer encoder layers
+* Regression output layer
+
+The configured architecture uses **4 attention heads**.
+
+---
+
+# 📊 Dataset
+
+The project works with historical air-quality observations collected across multiple Indian cities.
+
+The raw dataset contains city-level and station-level observations.
+
+### Raw data
+
+```text
+dataset/
+├── city_day.csv
+├── city_hour.csv
+├── station_day.csv
+├── station_hour.csv
+└── stations.csv
 ```
-AIR/
-├── dataset/                         # Original raw CPCB dataset
+
+The data-processing pipeline converts the raw information into cleaned and feature-engineered datasets suitable for machine-learning and deep-learning models.
+
+---
+
+# 📁 Processed Dataset
+
+The generated datasets are stored inside:
+
+```text
+final_dataset/
+```
+
+### `city_day_cleaned.csv`
+
+Contains cleaned daily air-quality observations.
+
+Important fields include:
+
+| Column          | Description               |
+| --------------- | ------------------------- |
+| City            | Indian city name          |
+| Date            | Observation date          |
+| PM2.5           | Fine particulate matter   |
+| PM10            | Coarse particulate matter |
+| NO              | Nitric oxide              |
+| NO2             | Nitrogen dioxide          |
+| NOx             | Nitrogen oxides           |
+| NH3             | Ammonia                   |
+| CO              | Carbon monoxide           |
+| SO2             | Sulfur dioxide            |
+| O3              | Ground-level ozone        |
+| Benzene         | Benzene concentration     |
+| Toluene         | Toluene concentration     |
+| Xylene          | Xylene concentration      |
+| AQI             | Calculated AQI            |
+| AQI_Bucket      | AQI category              |
+| Major_Pollutant | Dominant pollutant        |
+
+---
+
+## 🔬 Feature Engineering
+
+The forecasting dataset contains additional temporal and statistical features.
+
+### Temporal Features
+
+```text
+Year
+Month
+Day
+DayOfWeek
+DayOfYear
+IsWeekend
+Season
+```
+
+These features help the models recognize seasonal and calendar-based pollution patterns.
+
+### Ratio Features
+
+```text
+PM2.5_PM10_ratio
+NO2_NOx_ratio
+```
+
+These provide additional information about pollutant relationships.
+
+### Lag Features
+
+Historical values are incorporated through lag variables such as:
+
+```text
+AQI_lag_1d
+AQI_lag_2d
+AQI_lag_7d
+PM2.5_lag_1d
+NO2_lag_1d
+```
+
+### Rolling Statistics
+
+Moving-window features include:
+
+```text
+AQI_roll_mean_3d
+AQI_roll_mean_7d
+AQI_roll_mean_14d
+AQI_roll_std_7d
+PM2.5_roll_mean_7d
+```
+
+### Forecast Targets
+
+The model can learn to predict:
+
+```text
+AQI_target_1d
+AQI_target_3d
+AQI_target_7d
+```
+
+---
+
+# 🏗️ Project Structure
+
+```text
+AI-Air-Quality-Prediction/
+│
+├── dataset/
 │   ├── city_day.csv
 │   ├── city_hour.csv
 │   ├── station_day.csv
 │   ├── station_hour.csv
 │   └── stations.csv
-├── final_dataset/                   # Cleaned & feature-engineered final dataset
-│   ├── city_day_cleaned.csv         # Continuous daily air quality for 26 cities
-│   ├── city_day_forecasting.csv     # Features & multi-step targets for ML/DL models
-│   ├── personalized_health_advisory.csv # Pre-mapped health advisories per city/day
-│   ├── health_advisory_lookup.csv   # Fast reference lookup matrix for apps
-│   ├── station_day_cleaned.csv      # Cleaned station-level daily dataset
-│   └── city_hour_cleaned.csv        # Cleaned city-level hourly dataset
-├── models/                          # Trained PyTorch models & artifacts
-│   ├── lstm_model.pt                # Trained LSTM model weights
-│   ├── gru_model.pt                 # Trained GRU model weights
-│   ├── transformer_model.pt         # Trained Time-Series Transformer model weights
-│   ├── scaler.pkl                   # StandardScaler object
-│   └── model_comparison.json        # MAE, RMSE, R2, MAPE benchmark report
+│
+├── final_dataset/
+│   ├── city_day_cleaned.csv
+│   ├── city_day_forecasting.csv
+│   ├── personalized_health_advisory.csv
+│   ├── health_advisory_lookup.csv
+│   ├── station_day_cleaned.csv
+│   └── city_hour_cleaned.csv
+│
+├── models/
+│   ├── lstm_model.pt
+│   ├── gru_model.pt
+│   ├── transformer_model.pt
+│   ├── scaler.pkl
+│   └── model_comparison.json
+│
 ├── scripts/
-│   └── clean_and_process.py         # End-to-end dataset cleaning & feature engineering pipeline
+│   └── clean_and_process.py
+│
 ├── src/
-│   ├── models.py                    # PyTorch model architectures (LSTM, GRU, Transformer)
-│   ├── train.py                     # Training & evaluation pipeline
-│   ├── eval_models.py               # Model evaluation & metrics benchmarks
-│   ├── advisory_agent.py            # AI Agent Personalized Health Advisory engine
-│   └── open_meteo_client.py         # Live Open-Meteo API & geocoding integration
-├── app.py                           # Interactive Streamlit Web Application
-├── DATASET_DOCUMENTATION.md         # Detailed dataset schema & field definitions
-└── README.md                        # Project documentation
+│   ├── models.py
+│   ├── train.py
+│   ├── eval_models.py
+│   ├── advisory_agent.py
+│   └── open_meteo_client.py
+│
+├── app.py
+├── run.py
+├── server.py
+├── DATASET_DOCUMENTATION.md
+└── README.md
 ```
 
 ---
 
-## 📊 Dataset Overview
+# ⚙️ Technology Stack
 
-### `city_day_cleaned.csv`
-Contains continuous daily ambient air pollutant concentrations across 26 Indian cities (2015–2020) with fully imputed values and recalculated CPCB AQI.
+### Programming
 
-| Column Name | Data Type | Unit | Description |
-| :--- | :--- | :--- | :--- |
-| `City` | Categorical | - | Name of the Indian city (26 unique cities) |
-| `Date` | Datetime | YYYY-MM-DD | Date of observation |
-| `PM2.5` | Float | µg/m³ | Fine Particulate Matter (<2.5 µm diameter) |
-| `PM10` | Float | µg/m³ | Coarse Particulate Matter (<10 µm diameter) |
-| `NO` | Float | µg/m³ | Nitric Oxide concentration |
-| `NO2` | Float | µg/m³ | Nitrogen Dioxide concentration |
-| `NOx` | Float | ppb / µg/m³ | Nitrogen Oxides total concentration |
-| `NH3` | Float | µg/m³ | Ammonia concentration |
-| `CO` | Float | mg/m³ | Carbon Monoxide concentration |
-| `SO2` | Float | µg/m³ | Sulfur Dioxide concentration |
-| `O3` | Float | µg/m³ | Ground-level Ozone concentration |
-| `Benzene` | Float | µg/m³ | Benzene chemical concentration |
-| `Toluene` | Float | µg/m³ | Toluene chemical concentration |
-| `Xylene` | Float | µg/m³ | Xylene chemical concentration |
-| `AQI` | Float | Index (0-500+) | Calculated Indian National Air Quality Index |
-| `AQI_Bucket` | Categorical | Category | CPCB Category (Good, Satisfactory, Moderate, Poor, Very Poor, Severe) |
-| `Major_Pollutant`| Categorical | Pollutant | Dominant pollutant contributing most to daily AQI |
+* Python
 
-### `city_day_forecasting.csv`
-Enriched time-series forecasting dataset containing engineered features and target horizons.
+### Data Processing
 
-| Feature Group | Features Included | Description |
-| :--- | :--- | :--- |
-| **Calendar & Temporal** | `Year`, `Month`, `Day`, `DayOfWeek`, `DayOfYear`, `IsWeekend`, `Season` | Encodes seasonal and weekly patterns (Winter, Summer, Monsoon, Post-Monsoon). |
-| **Ratios** | `PM2.5_PM10_ratio`, `NO2_NOx_ratio` | Indicates combustion vs dust ratio and photochemical activity. |
-| **Lags (1d, 2d, 7d)** | `AQI_lag_1d`, `AQI_lag_2d`, `AQI_lag_7d`, `PM2.5_lag_1d`, `NO2_lag_1d` | Captures autocorrelation and momentum. |
-| **Rolling Windows** | `AQI_roll_mean_3d`, `AQI_roll_mean_7d`, `AQI_roll_mean_14d`, `AQI_roll_std_7d`, `PM2.5_roll_mean_7d` | Moving averages and volatility over 3, 7, 14, and 30 days. |
-| **Target Horizons** | `AQI_target_1d`, `AQI_target_3d`, `AQI_target_7d` | Multi-step forward targets for direct forecasting. |
+* Pandas
+* NumPy
+* Scikit-learn
+
+### Deep Learning
+
+* PyTorch
+
+### Visualization
+
+* Plotly
+* Streamlit
+
+### APIs
+
+* Open-Meteo API
+
+### Utilities
+
+* Joblib
+* Requests
 
 ---
 
-## 🩺 Personalized Health Advisory Profiles
+# 🔄 System Workflow
 
-The AI Agent dynamically maps environmental readings to 6 distinct health profiles:
-
-1. **General Public**: Standard ambient precautions and general fitness advice.
-2. **Asthma / Respiratory Conditions**: Strict inhaler readiness, N95/N99 mask recommendations, indoor HEPA filtration advice.
-3. **Cardiovascular / Heart Disease**: Intensity limits for outdoor activities, indoor isolation during peak smog.
-4. **Elderly (65+ years)**: Targeted protection against respiratory distress and temperature spikes.
-5. **Children & Infants**: Guidance for outdoor play restrictions and school activity precautions.
-6. **Outdoor Athletes / Workers**: Adjustments for outdoor exertion training window scheduling.
-
----
-
-## 🤖 Deep Learning Models (PyTorch)
-
-Three deep learning sequence architectures are trained on 14-day sliding windows (`SEQ_LEN = 14`):
-
-1. **LSTM (`LSTMForecaster`)**: Stacked LSTM with dropout (0.2) and dense regression head.
-2. **GRU (`GRUForecaster`)**: Gated Recurrent Unit network for efficient temporal representations.
-3. **Transformer (`TransformerForecaster`)**: Positional Encoding + Multi-Head Self-Attention (`nhead=4`) Encoder.
-
----
-
-## 🚀 Quickstart & Installation
-
-### Prerequisites
-- Python 3.8+
-- PyTorch
-- Streamlit
-- Pandas, NumPy, Scikit-Learn, Joblib, Plotly, Requests
-
-### Installation
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/rajarajendra1103/AI-AIR.git
-   cd AI-AIR
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   pip install torch pandas numpy scikit-learn joblib plotly streamlit requests
-   ```
-
-3. **Run Data Cleaning & Feature Pipeline**:
-   ```bash
-   python scripts/clean_and_process.py
-   ```
-
-4. **Train Deep Learning Models**:
-   ```bash
-   python src/train.py
-   ```
-
-5. **Evaluate Models**:
-   ```bash
-   python src/eval_models.py
-   ```
-
-6. **Launch Interactive Dashboard**:
-   ```bash
-   streamlit run app.py
-   ```
+```text
+Historical Air Quality Data
+            ↓
+     Data Cleaning
+            ↓
+    Feature Engineering
+            ↓
+      Dataset Creation
+            ↓
+     Sequence Generation
+            ↓
+ ┌──────────┼───────────┐
+ ↓          ↓           ↓
+LSTM       GRU     Transformer
+ ↓          ↓           ↓
+ └──────────┼───────────┘
+            ↓
+    Model Evaluation
+            ↓
+       AQI Forecast
+            ↓
+  Health Risk Assessment
+            ↓
+ Personalized Advisory
+            ↓
+    Streamlit Dashboard
+```
 
 ---
 
-## 📜 License
-This project is licensed under the MIT License.
+# 🛠️ Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/NarendraMandada77/AI-Air-Quality-Prediction.git
+cd AI-Air-Quality-Prediction
+```
+
+---
+
+## 2. Install Required Packages
+
+```bash
+pip install torch pandas numpy scikit-learn joblib plotly streamlit requests
+```
+
+If a `requirements.txt` file is available, you can alternatively use:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# ▶️ Running the Project
+
+## Step 1 — Process the Dataset
+
+Run:
+
+```bash
+python scripts/clean_and_process.py
+```
+
+This prepares the raw datasets and generates the processed feature-engineered files.
+
+---
+
+## Step 2 — Train the Models
+
+Run:
+
+```bash
+python src/train.py
+```
+
+The training pipeline produces the trained model files inside:
+
+```text
+models/
+```
+
+---
+
+## Step 3 — Evaluate the Models
+
+Run:
+
+```bash
+python src/eval_models.py
+```
+
+This evaluates the trained models and generates comparison metrics.
+
+---
+
+## Step 4 — Start the Dashboard
+
+Run:
+
+```bash
+streamlit run app.py
+```
+
+The Streamlit interface will open in your browser.
+
+---
+
+# 📈 Model Evaluation
+
+The project compares the forecasting models using standard regression metrics, including:
+
+* MAE — Mean Absolute Error
+* RMSE — Root Mean Squared Error
+* R² — Coefficient of Determination
+* MAPE — Mean Absolute Percentage Error
+
+The comparison results are stored in:
+
+```text
+models/model_comparison.json
+```
+
+---
+
+# 🔐 Data & API Considerations
+
+The project uses Open-Meteo for live environmental information.
+
+Internet access is required when retrieving live data.
+
+Historical datasets can still be processed and used for model training without requiring a paid AI API key.
+
+---
+
+# 🎯 Project Objectives
+
+The primary objectives of this project are:
+
+1. Forecast future AQI using deep-learning models.
+2. Analyze historical air-pollution patterns.
+3. Integrate live environmental information.
+4. Calculate Indian AQI categories.
+5. Identify dominant pollutants.
+6. Compare different deep-learning architectures.
+7. Provide personalized environmental health guidance.
+8. Present results through an interactive dashboard.
+
+---
+
+# 👨‍💻 Author
+
+**Narendra Mandada**
+
+Repository:
+
+**[NarendraMandada77](https://github.com/NarendraMandada77/AI-Air-Quality-Prediction)**
+
+# 📜 License
+
+This project is available under the **MIT License**.
