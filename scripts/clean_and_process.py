@@ -4,8 +4,8 @@ import os
 import warnings
 warnings.filterwarnings('ignore')
 
-INPUT_DIR = r"c:\Users\Thilak chodagiri\Desktop\AIR\dataset"
-OUTPUT_DIR = r"c:\Users\Thilak chodagiri\Desktop\AIR\final_dataset"
+INPUT_DIR = r"C:\Users\mn492\Downloads\AI-AIR-main\AI-AIR-main\dataset"
+OUTPUT_DIR = r"C:\Users\mn492\Downloads\AI-AIR-main\AI-AIR-main\final_dataset"
 
 def main():
     print("Starting Air Quality Data Cleaning & Feature Pipeline...")
@@ -344,20 +344,24 @@ s_day['AQI_Bucket'] = s_day['AQI'].apply(get_aqi_bucket)
 s_day.to_csv(os.path.join(OUTPUT_DIR, "station_day_cleaned.csv"), index=False)
 print("Saved station_day_cleaned.csv (Shape:", s_day.shape, ")")
 
-print("Processing city_hour.csv (sampled hourly aggregation)...")
-c_hour = pd.read_csv(os.path.join(INPUT_DIR, "city_hour.csv"))
-c_hour['Datetime'] = pd.to_datetime(c_hour['Datetime'])
-c_hour = c_hour.sort_values(['City', 'Datetime']).reset_index(drop=True)
+city_hour_path = os.path.join(INPUT_DIR, "city_hour.csv")
+if os.path.exists(city_hour_path):
+    print("Processing city_hour.csv (sampled hourly aggregation)...")
+    c_hour = pd.read_csv(city_hour_path)
+    c_hour['Datetime'] = pd.to_datetime(c_hour['Datetime'])
+    c_hour = c_hour.sort_values(['City', 'Datetime']).reset_index(drop=True)
 
-for col in ['PM2.5', 'PM10', 'NO2', 'CO', 'SO2', 'O3', 'AQI']:
-    if col in c_hour.columns:
-        c_hour[col] = c_hour[col].clip(lower=0)
-        c_hour[col] = c_hour.groupby('City')[col].transform(lambda x: x.interpolate(method='linear', limit=12).ffill().bfill())
-        c_hour[col] = c_hour[col].fillna(c_hour[col].median())
+    for col in ['PM2.5', 'PM10', 'NO2', 'CO', 'SO2', 'O3', 'AQI']:
+        if col in c_hour.columns:
+            c_hour[col] = c_hour[col].clip(lower=0)
+            c_hour[col] = c_hour.groupby('City')[col].transform(lambda x: x.interpolate(method='linear', limit=12).ffill().bfill())
+            c_hour[col] = c_hour[col].fillna(c_hour[col].median())
 
-c_hour['AQI_Bucket'] = c_hour['AQI'].apply(get_aqi_bucket)
-c_hour.to_csv(os.path.join(OUTPUT_DIR, "city_hour_cleaned.csv"), index=False)
-print("Saved city_hour_cleaned.csv (Shape:", c_hour.shape, ")")
+    c_hour['AQI_Bucket'] = c_hour['AQI'].apply(get_aqi_bucket)
+    c_hour.to_csv(os.path.join(OUTPUT_DIR, "city_hour_cleaned.csv"), index=False)
+    print("Saved city_hour_cleaned.csv (Shape:", c_hour.shape, ")")
+else:
+    print("Skipping city_hour.csv — file not found in dataset folder.")
 
 print("\nDataset cleaning and feature engineering successfully completed!")
 

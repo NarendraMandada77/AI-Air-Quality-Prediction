@@ -24,7 +24,7 @@ from src.open_meteo_client import search_city, fetch_live_telemetry, fetch_14day
 # Page Configuration & Styling
 # -------------------------------------------------------------
 st.set_page_config(
-    page_title="AI Air Quality & Weather Forecasting | Health Advisory",
+    page_title="AI Air Quality Prediction and  Weather Forecasting | Health Advisory",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded"
