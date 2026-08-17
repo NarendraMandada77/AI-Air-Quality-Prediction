@@ -3,18 +3,21 @@
         "MAE": 22.46,
         "RMSE": 40.25,
         "R2": 0.8537,
-        "MAPE": 23.1
+        "MAPE": 23.1,
+        "Accuracy": 76.9
     },
     "GRU": {
         "MAE": 19.41,
         "RMSE": 39.16,
         "R2": 0.8616,
-        "MAPE": 16.48
+        "MAPE": 16.48,
+        "Accuracy": 83.52
     },
     "Transformer": {
         "MAE": 21.21,
         "RMSE": 39.53,
         "R2": 0.8589,
-        "MAPE": 20.29
+        "MAPE": 20.29,
+        "Accuracy": 79.71
     }
 }

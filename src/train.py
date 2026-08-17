@@ -173,13 +173,14 @@ def main():
         model.load_state_dict(torch.load(best_model_path))
         metrics = evaluate_model(model, test_loader, device)
         
-        print(f"--> {name} Test Performance: MAE={metrics['MAE']}, RMSE={metrics['RMSE']}, R²={metrics['R2']}")
+        print(f"--> {name} Test Performance: MAE={metrics['MAE']}, RMSE={metrics['RMSE']}, MAPE={metrics['MAPE']}%, Accuracy={(100-metrics['MAPE']):.2f}%, R\u00b2={metrics['R2']}")
         
         comparison_results[name] = {
             'MAE': metrics['MAE'],
             'RMSE': metrics['RMSE'],
             'R2': metrics['R2'],
-            'MAPE': metrics['MAPE']
+            'MAPE': metrics['MAPE'],
+            'Accuracy': round(float(100 - metrics['MAPE']), 2)
         }
         
     with open(os.path.join(MODEL_DIR, "model_comparison.json"), 'w') as f:

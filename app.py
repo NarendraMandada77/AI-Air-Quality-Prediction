@@ -171,24 +171,31 @@ hr{border-color:rgba(56,189,248,0.1) !important;margin:1rem 0 !important;}
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif !important;
     background-color: #f4f6fb !important;
-    color: #1e293b !important;
+    color: #0f172a !important;
 }
 .stApp { background: linear-gradient(160deg, #eef2ff 0%, #f0fdf4 50%, #f8fafc 100%) !important; }
 #MainMenu,footer,header { visibility:hidden; }
 section[data-testid="stSidebar"] { display:none !important; }
 .block-container { padding:1.2rem 2.5rem 3rem 2.5rem !important; max-width:1380px !important; }
 
+/* ── General text ── */
+p, li, span, div { color: #1e293b; }
+.stMarkdown p { color: #1e293b !important; font-size: 0.9rem; line-height: 1.7; }
+.stMarkdown li { color: #1e293b !important; }
+.stMarkdown a { color: #4f46e5 !important; }
+code { color: #4f46e5 !important; background: rgba(99,102,241,0.08) !important; padding: 0.1rem 0.4rem; border-radius: 4px; }
+
 /* ── Brand ── */
 .brand-header{display:flex;align-items:center;gap:14px;padding:1rem 0 0.6rem 0;border-bottom:2px solid rgba(99,102,241,0.12);margin-bottom:0.4rem;}
 .brand-name{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:800;background:linear-gradient(90deg,#4f46e5 0%,#0ea5e9 55%,#10b981 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.6px;}
-.brand-tagline{font-size:0.79rem;color:#94a3b8;font-weight:400;margin-top:-2px;}
+.brand-tagline{font-size:0.79rem;color:#475569;font-weight:500;margin-top:-2px;}
 .brand-pill{margin-left:auto;display:flex;gap:8px;align-items:center;}
-.pill-tag{background:rgba(99,102,241,0.09);border:1px solid rgba(99,102,241,0.2);border-radius:20px;padding:0.25rem 0.8rem;font-size:0.72rem;font-weight:600;color:#6366f1;}
+.pill-tag{background:rgba(99,102,241,0.09);border:1px solid rgba(99,102,241,0.2);border-radius:20px;padding:0.25rem 0.8rem;font-size:0.72rem;font-weight:600;color:#4f46e5;}
 
 /* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"]{background:white !important;border-radius:12px !important;padding:5px !important;border:1px solid rgba(99,102,241,0.15) !important;gap:4px !important;box-shadow:0 2px 12px rgba(99,102,241,0.07) !important;margin-bottom:1.4rem !important;}
-.stTabs [data-baseweb="tab"]{background:transparent !important;border-radius:9px !important;color:#64748b !important;font-weight:500 !important;font-size:0.875rem !important;padding:0.5rem 1.1rem !important;transition:all 0.2s ease !important;border:none !important;}
-.stTabs [aria-selected="true"]{background:linear-gradient(135deg,#6366f1 0%,#4f46e5 100%) !important;color:white !important;font-weight:600 !important;box-shadow:0 3px 12px rgba(99,102,241,0.35) !important;}
+.stTabs [data-baseweb="tab"]{background:transparent !important;border-radius:9px !important;color:#334155 !important;font-weight:600 !important;font-size:0.875rem !important;padding:0.5rem 1.1rem !important;transition:all 0.2s ease !important;border:none !important;}
+.stTabs [aria-selected="true"]{background:linear-gradient(135deg,#6366f1 0%,#4f46e5 100%) !important;color:white !important;font-weight:700 !important;box-shadow:0 3px 12px rgba(99,102,241,0.35) !important;}
 .stTabs [data-baseweb="tab-highlight"]{display:none !important;}
 .stTabs [data-baseweb="tab-panel"]{padding-top:0 !important;}
 
@@ -198,69 +205,71 @@ section[data-testid="stSidebar"] { display:none !important; }
 .stat-card{background:white;border:1px solid rgba(99,102,241,0.12);border-radius:14px;padding:1.1rem 1.2rem;text-align:center;box-shadow:0 2px 12px rgba(99,102,241,0.06);transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
 .stat-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(99,102,241,0.14);}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#0ea5e9);border-radius:14px 14px 0 0;}
-.stat-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.09em;color:#94a3b8;font-weight:700;margin-bottom:0.4rem;}
-.stat-value{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;color:#1e293b;line-height:1;}
-.stat-value.blue{color:#4f46e5;} .stat-value.green{color:#10b981;} .stat-value.amber{color:#f59e0b;} .stat-value.red{color:#ef4444;}
-.stat-unit{font-size:0.69rem;color:#cbd5e1;margin-top:0.25rem;}
+.stat-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.09em;color:#475569;font-weight:700;margin-bottom:0.4rem;}
+.stat-value{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;color:#0f172a;line-height:1;}
+.stat-value.blue{color:#4f46e5;} .stat-value.green{color:#059669;} .stat-value.amber{color:#b45309;} .stat-value.red{color:#dc2626;}
+.stat-unit{font-size:0.72rem;color:#64748b;margin-top:0.25rem;font-weight:500;}
 
 /* ── Section titles ── */
-.section-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;color:#334155;display:flex;align-items:center;gap:8px;margin:1.4rem 0 0.85rem 0;}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;color:#1e293b;display:flex;align-items:center;gap:8px;margin:1.4rem 0 0.85rem 0;}
 .section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(99,102,241,0.25) 0%,transparent 100%);margin-left:8px;}
 
 /* ── Page hero ── */
-.page-title{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:800;color:#1e293b;line-height:1.15;margin-bottom:0.35rem;}
-.page-subtitle{font-size:0.9rem;color:#64748b;max-width:700px;line-height:1.65;margin-bottom:1.1rem;}
+.page-title{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:800;color:#0f172a;line-height:1.15;margin-bottom:0.35rem;}
+.page-subtitle{font-size:0.9rem;color:#334155;max-width:700px;line-height:1.65;margin-bottom:1.1rem;}
 
 /* ── AQI Hero ── */
 .aqi-hero{border-radius:16px;padding:1.8rem;text-align:center;color:white;box-shadow:0 6px 30px rgba(99,102,241,0.3);}
 .aqi-hero-val{font-family:'Space Grotesk',sans-serif;font-size:3.8rem;font-weight:800;line-height:1;letter-spacing:-2px;}
-.aqi-hero-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;margin-bottom:0.3rem;}
-.aqi-hero-cat{font-size:1rem;font-weight:600;opacity:0.95;margin-top:0.4rem;}
+.aqi-hero-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.9;margin-bottom:0.3rem;}
+.aqi-hero-cat{font-size:1rem;font-weight:600;opacity:0.97;margin-top:0.4rem;}
 
 /* ── AQI Pills ── */
 .aqi-pill{display:inline-block;padding:0.28rem 0.85rem;border-radius:50px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;}
-.aqi-good{background:#d1fae5;color:#065f46;} .aqi-satisf{background:#ecfccb;color:#365314;} .aqi-moderate{background:#fef3c7;color:#92400e;}
-.aqi-poor{background:#fee2e2;color:#991b1b;} .aqi-verypoor{background:#fce7f3;color:#831843;} .aqi-severe{background:#ede9fe;color:#4c1d95;}
+.aqi-good{background:#d1fae5;color:#064e3b;} .aqi-satisf{background:#ecfccb;color:#1a2e05;} .aqi-moderate{background:#fef3c7;color:#78350f;}
+.aqi-poor{background:#fee2e2;color:#7f1d1d;} .aqi-verypoor{background:#fce7f3;color:#500724;} .aqi-severe{background:#ede9fe;color:#3b0764;}
 
 /* ── Pollutant Card ── */
 .pollutant-card{background:white;border:1px solid rgba(99,102,241,0.1);border-radius:12px;padding:0.9rem 1rem;text-align:center;box-shadow:0 2px 10px rgba(99,102,241,0.05);transition:transform 0.2s,box-shadow 0.2s;}
 .pollutant-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.12);}
-.pollutant-name{font-size:0.75rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:0.06em;}
-.pollutant-val{font-family:'Space Grotesk',sans-serif;font-size:1.45rem;font-weight:700;color:#1e293b;}
-.pollutant-unit{font-size:0.66rem;color:#94a3b8;}
-.pollutant-desc{font-size:0.68rem;color:#64748b;margin-top:0.3rem;line-height:1.4;}
+.pollutant-name{font-size:0.75rem;font-weight:700;color:#4f46e5;text-transform:uppercase;letter-spacing:0.06em;}
+.pollutant-val{font-family:'Space Grotesk',sans-serif;font-size:1.45rem;font-weight:700;color:#0f172a;}
+.pollutant-unit{font-size:0.66rem;color:#475569;font-weight:600;}
+.pollutant-desc{font-size:0.68rem;color:#334155;margin-top:0.3rem;line-height:1.4;}
 
 /* ── Advisory ── */
 .advisory-box{background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border:1px solid rgba(99,102,241,0.2);border-left:4px solid #6366f1;border-radius:12px;padding:1.2rem 1.4rem;margin-top:0.8rem;}
-.advisory-label{font-size:0.72rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;}
-.advisory-text{font-size:1rem;color:#1e293b;font-weight:500;line-height:1.6;}
+.advisory-label{font-size:0.72rem;font-weight:700;color:#4f46e5;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;}
+.advisory-text{font-size:1rem;color:#0f172a;font-weight:500;line-height:1.6;}
 
 /* ── Concept / Info ── */
 .concept-box{background:linear-gradient(135deg,#eff6ff 0%,#eef2ff 100%);border:1px solid rgba(99,102,241,0.18);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:0.85rem;}
-.concept-title{font-weight:700;color:#4f46e5;font-size:0.95rem;margin-bottom:0.35rem;}
-.concept-body{font-size:0.875rem;color:#475569;line-height:1.65;}
-.info-banner{background:linear-gradient(90deg,rgba(99,102,241,0.07) 0%,rgba(14,165,233,0.06) 100%);border:1px solid rgba(99,102,241,0.15);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:#475569;margin-bottom:1rem;display:flex;align-items:flex-start;gap:10px;}
+.concept-title{font-weight:700;color:#3730a3;font-size:0.95rem;margin-bottom:0.35rem;}
+.concept-body{font-size:0.875rem;color:#1e293b;line-height:1.65;}
+.info-banner{background:linear-gradient(90deg,rgba(99,102,241,0.07) 0%,rgba(14,165,233,0.06) 100%);border:1px solid rgba(99,102,241,0.15);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:#1e293b;margin-bottom:1rem;display:flex;align-items:flex-start;gap:10px;}
 
 /* ── Guide Card ── */
 .guide-card{background:white;border-radius:14px;border:1px solid rgba(99,102,241,0.1);padding:1.3rem;box-shadow:0 2px 14px rgba(99,102,241,0.06);height:100%;}
 .guide-icon{font-size:1.8rem;margin-bottom:0.6rem;}
-.guide-title{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:700;color:#1e293b;margin-bottom:0.4rem;}
-.guide-body{font-size:0.82rem;color:#64748b;line-height:1.65;}
+.guide-title{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;}
+.guide-body{font-size:0.82rem;color:#334155;line-height:1.65;}
 
 /* ── Widgets ── */
-.stTextInput>div>div>input{background:white !important;border:1.5px solid rgba(99,102,241,0.25) !important;border-radius:10px !important;color:#1e293b !important;font-size:0.9rem !important;box-shadow:0 2px 8px rgba(99,102,241,0.06) !important;}
+.stTextInput>div>div>input{background:white !important;border:1.5px solid rgba(99,102,241,0.25) !important;border-radius:10px !important;color:#0f172a !important;font-size:0.9rem !important;box-shadow:0 2px 8px rgba(99,102,241,0.06) !important;}
 .stTextInput>div>div>input:focus{border-color:#6366f1 !important;box-shadow:0 0 0 3px rgba(99,102,241,0.12) !important;}
-.stSelectbox>div>div{background:white !important;border:1.5px solid rgba(99,102,241,0.2) !important;border-radius:10px !important;color:#1e293b !important;}
+.stSelectbox>div>div{background:white !important;border:1.5px solid rgba(99,102,241,0.2) !important;border-radius:10px !important;color:#0f172a !important;}
 .stButton>button{background:linear-gradient(135deg,#6366f1 0%,#4f46e5 100%) !important;color:white !important;font-weight:600 !important;border:none !important;border-radius:10px !important;padding:0.55rem 1.5rem !important;font-size:0.875rem !important;box-shadow:0 3px 14px rgba(99,102,241,0.3) !important;transition:all 0.2s ease !important;}
 .stButton>button:hover{transform:translateY(-2px) !important;box-shadow:0 6px 20px rgba(99,102,241,0.45) !important;}
-label{color:#475569 !important;font-size:0.82rem !important;font-weight:600 !important;}
+label{color:#1e293b !important;font-size:0.82rem !important;font-weight:600 !important;}
 [data-testid="stMetric"]{background:white;border:1px solid rgba(99,102,241,0.1);border-radius:12px;padding:0.8rem 1rem;box-shadow:0 2px 10px rgba(99,102,241,0.05);}
-[data-testid="stMetricLabel"]{color:#64748b !important;font-size:0.78rem !important;font-weight:600 !important;}
-[data-testid="stMetricValue"]{color:#1e293b !important;font-size:1.55rem !important;font-weight:700 !important;}
-.streamlit-expanderHeader{background:white !important;border:1px solid rgba(99,102,241,0.14) !important;border-radius:10px !important;color:#4f46e5 !important;font-weight:600 !important;font-size:0.875rem !important;}
-.streamlit-expanderContent{background:#f8fafc !important;border:1px solid rgba(99,102,241,0.1) !important;border-top:none !important;border-radius:0 0 10px 10px !important;}
+[data-testid="stMetricLabel"]{color:#334155 !important;font-size:0.78rem !important;font-weight:600 !important;}
+[data-testid="stMetricValue"]{color:#0f172a !important;font-size:1.55rem !important;font-weight:700 !important;}
+.streamlit-expanderHeader{background:white !important;border:1px solid rgba(99,102,241,0.14) !important;border-radius:10px !important;color:#3730a3 !important;font-weight:700 !important;font-size:0.875rem !important;}
+.streamlit-expanderContent{background:#f8fafc !important;border:1px solid rgba(99,102,241,0.1) !important;border-top:none !important;border-radius:0 0 10px 10px !important;color:#1e293b !important;}
+.streamlit-expanderContent p,.streamlit-expanderContent li,.streamlit-expanderContent span{color:#1e293b !important;}
 .stProgress>div>div{background:linear-gradient(90deg,#6366f1 0%,#0ea5e9 100%) !important;border-radius:4px !important;}
 .stAlert{background:#eff6ff !important;border:1px solid rgba(99,102,241,0.2) !important;border-radius:10px !important;color:#1e293b !important;}
+.stAlert p,.stAlert span{color:#1e293b !important;}
 .stSuccess{background:#f0fdf4 !important;border-color:rgba(16,185,129,0.3) !important;}
 .stWarning{background:#fffbeb !important;border-color:rgba(245,158,11,0.3) !important;}
 hr{border-color:rgba(99,102,241,0.1) !important;margin:1rem 0 !important;}
@@ -268,25 +277,31 @@ hr{border-color:rgba(99,102,241,0.1) !important;margin:1rem 0 !important;}
 /* ── Benchmark/Medal ── */
 .medal-card{background:white;border:1.5px solid rgba(99,102,241,0.12);border-radius:16px;padding:1.4rem;text-align:center;box-shadow:0 3px 16px rgba(99,102,241,0.08);transition:transform 0.2s,box-shadow 0.2s;}
 .medal-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(99,102,241,0.16);}
-.medal-emoji{font-size:2.2rem;} .medal-model{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#1e293b;margin:0.4rem 0;}
-.medal-stat{font-size:0.78rem;color:#94a3b8;margin:0.15rem 0;} .medal-stat b{color:#4f46e5;font-size:1.0rem;}
+.medal-emoji{font-size:2.2rem;} .medal-model{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#0f172a;margin:0.4rem 0;}
+.medal-stat{font-size:0.78rem;color:#475569;margin:0.15rem 0;font-weight:500;} .medal-stat b{color:#3730a3;font-size:1.0rem;}
 
 /* ── Doc cards ── */
 .doc-card{background:white;border:1px solid rgba(99,102,241,0.1);border-radius:16px;padding:1.5rem;box-shadow:0 2px 14px rgba(99,102,241,0.06);margin-bottom:1rem;}
-.doc-card h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:#4f46e5;margin-bottom:0.5rem;}
-.doc-card p,.doc-card li{font-size:0.875rem;color:#475569;line-height:1.7;margin-bottom:0.25rem;}
+.doc-card h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:#3730a3;margin-bottom:0.5rem;}
+.doc-card p,.doc-card li{font-size:0.875rem;color:#1e293b;line-height:1.7;margin-bottom:0.25rem;}
 .doc-card ul{padding-left:1.2rem;}
-.tech-badge{display:inline-block;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.18);border-radius:6px;padding:0.2rem 0.6rem;font-size:0.72rem;font-weight:600;color:#6366f1;margin:2px 3px 2px 0;}
+.doc-card b{color:#0f172a;}
+.tech-badge{display:inline-block;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.18);border-radius:6px;padding:0.2rem 0.6rem;font-size:0.72rem;font-weight:600;color:#3730a3;margin:2px 3px 2px 0;}
 
 /* ── Step rows ── */
 .step-row{display:flex;gap:10px;margin-bottom:1.1rem;}
 .step-num{min-width:28px;height:28px;background:linear-gradient(135deg,#6366f1,#4f46e5);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px;}
-.step-body{font-size:0.875rem;color:#475569;line-height:1.6;} .step-body b{color:#1e293b;}
+.step-body{font-size:0.875rem;color:#1e293b;line-height:1.6;} .step-body b{color:#0f172a;font-weight:700;}
+
+/* ── Dataframe ── */
+[data-testid="stDataFrame"] td,[data-testid="stDataFrame"] th{color:#0f172a !important;}
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar{width:6px;height:6px;} ::-webkit-scrollbar-track{background:#f1f5f9;}
 ::-webkit-scrollbar-thumb{background:rgba(99,102,241,0.3);border-radius:3px;} ::-webkit-scrollbar-thumb:hover{background:rgba(99,102,241,0.5);}
 </style>"""
+
+
 
 st.markdown(get_theme_css(st.session_state.dark_mode), unsafe_allow_html=True)
 
@@ -350,9 +365,20 @@ def aqi_category(val):
     return "Severe", "#a855f7", "Emergency conditions."
 
 def aqi_pill_html(cat):
-    cls = {"Good":"aqi-good","Satisfactory":"aqi-satisf","Moderate":"aqi-moderate",
-           "Poor":"aqi-poor","Very Poor":"aqi-verypoor","Severe":"aqi-severe"}.get(cat,"aqi-moderate")
-    return f'<span class="aqi-pill {cls}">{cat}</span>'
+    PILL_STYLES = {
+        "Good":         ("rgba(52,211,153,0.15)",  "#34d399", "rgba(52,211,153,0.4)"),
+        "Satisfactory": ("rgba(163,230,53,0.15)",  "#84cc16", "rgba(163,230,53,0.4)"),
+        "Moderate":     ("rgba(251,191,36,0.15)",  "#f59e0b", "rgba(251,191,36,0.4)"),
+        "Poor":         ("rgba(249,115,22,0.15)",  "#f97316", "rgba(249,115,22,0.4)"),
+        "Very Poor":    ("rgba(239,68,68,0.15)",   "#ef4444", "rgba(239,68,68,0.4)"),
+        "Severe":       ("rgba(168,85,247,0.15)",  "#a855f7", "rgba(168,85,247,0.4)"),
+    }
+    bg, color, border = PILL_STYLES.get(cat, PILL_STYLES["Moderate"])
+    return (
+        f'<span style="display:inline-block;padding:0.28rem 0.85rem;border-radius:50px;'
+        f'font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;'
+        f'background:{bg};color:{color};border:1px solid {border};">{cat}</span>'
+    )
 
 @st.cache_data
 def load_datasets():
@@ -613,12 +639,17 @@ with tab1:
                         ]
                         for col, (lbl, val, delta) in zip([fc1,fc2,fc3], fc_data):
                             c2, desc2, _ = aqi_category(int(val))
-                            col.markdown(f"""<div class="stat-card">
-                            <div class="stat-label">Predicted AQI · {lbl}</div>
-                            <div class="stat-value" style="font-size:2.2rem;color:#4f46e5;">{val}</div>
-                            {f'<div class="stat-unit">{delta}</div>' if delta else ''}
-                            <div style="margin-top:0.4rem;">{aqi_pill_html(c2)}</div>
-                            </div>""", unsafe_allow_html=True)
+                            delta_part = f'<div class="stat-unit">{delta}</div>' if delta else ''
+                            pill_part   = aqi_pill_html(c2)
+                            card_html   = (
+                                f'<div class="stat-card">'
+                                f'<div class="stat-label">Predicted AQI &middot; {lbl}</div>'
+                                f'<div class="stat-value" style="font-size:2.2rem;color:#4f46e5;">{val}</div>'
+                                f'{delta_part}'
+                                f'<div style="margin-top:0.5rem;">{pill_part}</div>'
+                                f'</div>'
+                            )
+                            col.markdown(card_html, unsafe_allow_html=True)
 
                         # Forecast Chart
                         today  = datetime.now()
@@ -839,8 +870,10 @@ with tab3:
     st.markdown('<div class="page-subtitle">Comparative evaluation of LSTM, GRU, and Time-Series Transformer architectures on the held-out CPCB test set for next-day AQI forecasting.</div>', unsafe_allow_html=True)
 
     with st.expander("📐 Understanding the evaluation metrics"):
-        mc1, mc2, mc3, mc4 = st.columns(4)
+        mc1, mc2, mc3, mc4, mc5 = st.columns(5)
         metrics_info = [
+            ("Accuracy", "Forecast Accuracy (%)",
+             "Computed as (1 − MAPE/100) × 100. Expresses how close predictions are to actual values as a percentage. Higher = better. A model with MAPE of 16% has 84% accuracy."),
             ("MAE", "Mean Absolute Error",
              "Average of absolute differences between predicted and true AQI. Lower = better. Measured in AQI units — e.g., MAE of 8 means predictions are off by ≈8 AQI points on average."),
             ("RMSE","Root Mean Squared Error",
@@ -850,7 +883,7 @@ with tab3:
             ("R²",  "R-squared (Coefficient of Determination)",
              "Proportion of variance in AQI explained by the model. Range 0–1. Closer to 1.0 = better fit. Negative R² means the model performs worse than a simple mean baseline."),
         ]
-        for col, (abbr, full, desc) in zip([mc1,mc2,mc3,mc4], metrics_info):
+        for col, (abbr, full, desc) in zip([mc1,mc2,mc3,mc4,mc5], metrics_info):
             col.markdown(f"""<div class="concept-box">
             <div class="concept-title">{abbr} — {full}</div>
             <div class="concept-body">{desc}</div>
@@ -859,6 +892,17 @@ with tab3:
     if data_loaded and model_stats:
         bench_df = pd.DataFrame(model_stats).T.reset_index()
         bench_df.rename(columns={'index': 'Model'}, inplace=True)
+
+        # Always compute Accuracy from MAPE in-app (bypasses cache issues)
+        for _c in ['MAE','RMSE','MAPE','R2']:
+            if _c in bench_df.columns:
+                bench_df[_c] = pd.to_numeric(bench_df[_c], errors='coerce')
+        if 'MAPE' in bench_df.columns:
+            bench_df['Accuracy'] = (100 - bench_df['MAPE']).round(2)
+
+        # Sort best model first so medals are correct
+        if 'Accuracy' in bench_df.columns:
+            bench_df = bench_df.sort_values('Accuracy', ascending=False).reset_index(drop=True)
 
         # ── Medal Cards ──
         st.markdown('<div class="section-title">🏆 Architecture Comparison</div>', unsafe_allow_html=True)
@@ -871,17 +915,49 @@ with tab3:
         }
         for i, (col, (_, row)) in enumerate(zip(mc, bench_df.iterrows())):
             desc_title, desc_arch = model_desc.get(row['Model'], ('',''))
-            col.markdown(f"""<div class="medal-card">
-            <div class="medal-emoji">{medals[i] if i < 3 else '🔬'}</div>
-            <div class="medal-model">{row['Model']}</div>
-            <div style="font-size:0.72rem;color:#94a3b8;margin-bottom:0.6rem;">{desc_title}</div>
-            <hr style="margin:0.5rem 0;">
-            <div class="medal-stat">MAE &nbsp; <b>{row.get('MAE','–')}</b></div>
-            <div class="medal-stat">RMSE &nbsp;<b>{row.get('RMSE','–')}</b></div>
-            <div class="medal-stat">MAPE &nbsp;<b>{row.get('MAPE','–')}</b></div>
-            <div class="medal-stat">R² &nbsp;&nbsp;&nbsp;<b style="color:#10b981;">{row.get('R2','–')}</b></div>
-            <div style="font-size:0.68rem;color:#94a3b8;margin-top:0.7rem;">{desc_arch}</div>
-            </div>""", unsafe_allow_html=True)
+            acc_val = row.get('Accuracy', None)
+            try:
+                acc_num = float(acc_val)
+            except (TypeError, ValueError):
+                acc_num = None
+            acc_display = f"{acc_num:.2f}%" if acc_num is not None else '–'
+            bar_w = f"{acc_num:.1f}" if acc_num is not None else "0"
+            card_html = (
+                f'<div class="medal-card">'
+                f'<div class="medal-emoji">{medals[i] if i < 3 else "\U0001f52c"}</div>'
+                f'<div class="medal-model">{row["Model"]}</div>'
+                f'<div style="font-size:0.72rem;color:#64748b;margin-bottom:0.6rem;">{desc_title}</div>'
+                f'<hr style="margin:0.5rem 0;">'
+                f'<div style="margin-bottom:0.4rem;">'
+                f'<span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#64748b;">Accuracy</span><br>'
+                f'<span style="font-family:\'Space Grotesk\',sans-serif;font-size:1.9rem;font-weight:800;color:#10b981;">{acc_display}</span>'
+                f'</div>'
+                f'<div style="background:#e2e8f0;border-radius:4px;height:7px;margin:0.25rem 0 0.75rem 0;">'
+                f'<div style="background:linear-gradient(90deg,#10b981,#34d399);border-radius:4px;height:7px;width:{bar_w}%;"></div>'
+                f'</div>'
+                f'<hr style="margin:0.5rem 0;">'
+                f'<div class="medal-stat">MAE &nbsp; <b>{row.get("MAE","–")}</b></div>'
+                f'<div class="medal-stat">RMSE &nbsp;<b>{row.get("RMSE","–")}</b></div>'
+                f'<div class="medal-stat">MAPE &nbsp;<b>{row.get("MAPE","–")}%</b></div>'
+                f'<div class="medal-stat">R\u00b2 &nbsp;&nbsp;&nbsp;<b style="color:#6366f1;">{row.get("R2","–")}</b></div>'
+                f'<div style="font-size:0.68rem;color:#64748b;margin-top:0.7rem;">{desc_arch}</div>'
+                f'</div>'
+            )
+            col.markdown(card_html, unsafe_allow_html=True)
+
+        # ── Accuracy Chart ──
+        st.markdown('<div class="section-title">🎯 Forecast Accuracy % (Higher is Better)</div>', unsafe_allow_html=True)
+        if 'Accuracy' in bench_df.columns:
+            fig_acc = px.bar(bench_df, x='Model', y='Accuracy', color='Model',
+                             color_discrete_sequence=['#34d399','#6366f1','#f59e0b'],
+                             labels={'Accuracy':'Accuracy (%)'}, text='Accuracy')
+            fig_acc.update_traces(texttemplate='%{text:.2f}%', textposition='outside')
+            _acc_theme = get_plotly_theme()
+            _acc_theme['yaxis'] = {**_acc_theme.get('yaxis', {}), 'range': [0, 100]}
+            fig_acc.update_layout(**_acc_theme,
+                title=dict(text="Forecast Accuracy by Model (100 \u2212 MAPE %)", font=dict(size=13,color="#475569")),
+                height=340, showlegend=False)
+            st.plotly_chart(fig_acc, use_container_width=True)
 
         # ── MAE / RMSE Chart ──
         st.markdown('<div class="section-title">📊 Error Metric Comparison (Lower is Better)</div>', unsafe_allow_html=True)
@@ -906,10 +982,14 @@ with tab3:
 
         # ── Full Table ──
         st.markdown('<div class="section-title">📋 Full Metrics Table</div>', unsafe_allow_html=True)
-        st.dataframe(bench_df.style
-                     .highlight_min(axis=0, subset=['MAE','RMSE'], color='#d1fae5')
-                     .highlight_max(axis=0, subset=['R2'],         color='#d1fae5'),
-                     use_container_width=True, hide_index=True)
+        highlight_cols_max = [c for c in ['R2','Accuracy'] if c in bench_df.columns]
+        highlight_cols_min = [c for c in ['MAE','RMSE','MAPE'] if c in bench_df.columns]
+        styled = bench_df.style
+        if highlight_cols_min:
+            styled = styled.highlight_min(axis=0, subset=highlight_cols_min, color='#d1fae5')
+        if highlight_cols_max:
+            styled = styled.highlight_max(axis=0, subset=highlight_cols_max, color='#d1fae5')
+        st.dataframe(styled, use_container_width=True, hide_index=True)
 
         with st.expander("🔬 Which model should I use and why?"):
             st.markdown("""

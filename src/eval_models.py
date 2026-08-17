@@ -79,14 +79,17 @@ def evaluate():
             rmse = np.sqrt(mean_squared_error(targets_aqi, preds_aqi))
             r2 = r2_score(targets_aqi, preds_aqi)
             mape = np.mean(np.abs((targets_aqi - preds_aqi) / (targets_aqi + 1e-5))) * 100
+            accuracy = 100 - mape
             
             results[name] = {
                 'MAE': round(float(mae), 2),
                 'RMSE': round(float(rmse), 2),
                 'R2': round(float(r2), 4),
-                'MAPE': round(float(mape), 2)
+                'MAPE': round(float(mape), 2),
+                'Accuracy': round(float(accuracy), 2)
             }
-            print(f"{name}: MAE={mae:.2f}, RMSE={rmse:.2f}, R2={r2:.4f}, MAPE={mape:.2f}%")
+            print(f"{name}: MAE={mae:.2f}, RMSE={rmse:.2f}, MAPE={mape:.2f}%, Accuracy={accuracy:.2f}%, R2={r2:.4f}")
+
             
     with open(os.path.join(MODEL_DIR, "model_comparison.json"), 'w') as f:
         json.dump(results, f, indent=4)
